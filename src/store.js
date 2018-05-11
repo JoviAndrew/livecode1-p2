@@ -19,8 +19,12 @@ export default new Vuex.Store({
   },
   actions: {
     getToken ({commit}, userData) {
+      let email = userData.email
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if(userData.email === ''){
         alert('email is required')
+      }else if(!re.test(String(email).toLowerCase())){
+        alert('Please input a valid email address!')
       }else if(userData.name === ''){
         alert('name is required')
       }else{
