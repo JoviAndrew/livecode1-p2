@@ -57,7 +57,7 @@
           </thead>
           <tbody>
             <tr v-for="(image, index) in images" :key="index">
-              <th scope="row">{{index}}</th>
+              <th scope="row">{{index + 1}}</th>
               <td><img :src="image.url"></td>
               <td>{{image.user.name}}</td>
               <td>{{image.createdAt}}</td>
@@ -103,7 +103,7 @@ export default {
     uploadImage () {
       let formData = new FormData()
       formData.append('photo', this.file)
-      this.$store.dispatch('uploadImage', formData)      
+      this.$store.dispatch('uploadImage', formData)
     },
     getAllPhotos () {
       this.$store.dispatch('getAllImage')
@@ -118,7 +118,7 @@ export default {
     flex-direction: column;
     padding: 3% 0%;
     border: 1px solid rgb(153, 211, 250)
-  } 
+  }
   img{
     height: 10rem;
     width: auto;
